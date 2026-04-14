@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Minha Loja</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div id="telaLogin" class="tela-login">
+    <h2>🛍️ Minha Loja</h2>
+
+    <button onclick="entrarCliente()">Entrar como Cliente</button>
+
+    <h3>Vendedor</h3>
+    <input type="text" id="usuario" placeholder="Usuário">
+    <input type="password" id="senha" placeholder="Senha">
+
+    <button onclick="loginVendedor()">Entrar</button>
+    <button onclick="criarConta()">Criar Conta</button>
+</div>
+
+<!-- LOJA -->
+<div id="loja" style="display:none;">
+
+<header class="topo">
+    <h2>Minha Loja</h2>
+
+    <div>
+        <button onclick="sair()" class="btn-sair">Sair</button>
+
+        <span class="carrinho-btn" onclick="abrirCarrinho()">
+            🛒 <span id="contador">0</span>
+        </span>
+    </div>
+</header>
+
+<!-- BANNER -->
+<div class="banner">
+    <div class="slides">
+        <img src="banner1.jpg">
+        <img src="banner2.jpg">
+        <img src="banner3.jpg">
+    </div>
+</div>
+
+<!-- 📂 CATEGORIAS -->
+<div class="categorias">
+    <button onclick="filtrarCategoria('todos')">Todos</button>
+    <button onclick="filtrarCategoria('carretilha')">Carretilhas</button>
+    <button onclick="filtrarCategoria('linha')">Linhas</button>
+    <button onclick="filtrarCategoria('varas')">Varas</button>
+</div>
+
+<!-- 🛍️ PRODUTOS -->
+<div class="produtos" id="produtos"></div>
+
+<!-- 📄 PAGINAÇÃO -->
+<div id="paginacao" class="paginacao"></div>
+
+<!-- ⚙️ BOTÃO PAINEL -->
+<div class="btn-painel" onclick="abrirPainel()">⚙️</div>
+
+</div>
+
+<!-- 🛒 CARRINHO -->
+<div id="carrinho" class="tela-full">
+    <div class="topo-full">
+        <button onclick="fecharCarrinho()">⬅</button>
+        <h3>Carrinho</h3>
+    </div>
+
+    <div style="padding:20px;">
+        <div id="lista"></div>
+        <h3>Total: R$ <span id="total">0</span></h3>
+
+        <h3>Pagamento</h3>
+        <button onclick="pagarPix()">Pix</button>
+        <button onclick="pagarCartao()">Cartão</button>
+
+        <div id="pagamentoBox"></div>
+    </div>
+</div>
+
+<!-- ⚙️ PAINEL DO VENDEDOR -->
+<div id="painel" class="tela-full">
+    <div class="topo-full">
+        <button onclick="fecharPainel()">⬅</button>
+        <h3>Painel do Vendedor</h3>
+    </div>
+
+    <div style="padding:20px;">
+        <input type="text" id="nome" placeholder="Nome do produto">
+        <input type="number" id="preco" placeholder="Preço">
+
+        <select id="categoria">
+            <option value="carretilha">Carretilha</option>
+            <option value="linha">Linha</option>
+            <option value="varas">Varas</option>
+        </select>
+
+        <input type="file" id="imagem">
+
+        <button onclick="adicionarProduto()">Adicionar Produto</button>
+
+        <h4>Produtos</h4>
+        <div id="listaPainel"></div>
+
+        <h4>Pedidos</h4>
+        <div id="listaPedidos"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
